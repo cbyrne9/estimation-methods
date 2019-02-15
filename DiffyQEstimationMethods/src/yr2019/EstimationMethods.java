@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class EstimationMethods {
 
 	private static double yPrime;
-	
+	 
 	public static double function(double x, double y) {
 		
 		/* I didn't want to parse through a bunch of input
