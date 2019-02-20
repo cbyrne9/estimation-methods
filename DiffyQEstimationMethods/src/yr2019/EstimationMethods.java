@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class EstimationMethods {
 
 	private static double yPrime;
-	 
+	
 	public static double function(double x, double y) {
 		
 		/* I didn't want to parse through a bunch of input
@@ -38,7 +38,7 @@ public class EstimationMethods {
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		Scanner kboard = new Scanner(System.in);
 		System.out.println("Please enter initial X");
@@ -74,7 +74,8 @@ public class EstimationMethods {
 				for (int i = 0; i < iterations; i++) {
 					y = y + h * function(x,y);
 					x += h;
-					System.out.println(y);
+					if (i % (iterations / 10) == 0)
+						System.out.println(y);
 				}
 			}
 			//End of Euler's method
@@ -87,7 +88,8 @@ public class EstimationMethods {
 					double avgSlope = (slope1 + slope2) / 2;
 					y = y + h * avgSlope;
 					x += h;
-					System.out.println(y);
+					if (i % (iterations / 10) == 0)
+						System.out.println(y);
 				}
 			}
 			//End of Improved Euler's
@@ -102,20 +104,15 @@ public class EstimationMethods {
 					double avgSlope = (slope1 + 2 * slope2 + 2 * slope3 + slope4) / 6;
 					y = y + h * avgSlope;
 					x += h;
-					System.out.println(y);
+					if (i % (iterations / 10) == 0)
+						System.out.println(y);
 				}
 			}
 			//End of RK4 method
 		
 		} while (method != 0 && method != 1 && method != 2);
 		
-		
-		
-		
-		
 		System.out.println("Your final estimation with " + iterations + " steps of size " + h + " is:\n" + y + "\n");
-		
-		
 		
 	}
 
