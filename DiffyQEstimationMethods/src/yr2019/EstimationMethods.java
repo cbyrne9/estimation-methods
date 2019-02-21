@@ -15,7 +15,7 @@ public class EstimationMethods {
 		 * NOTE: must be in the form y' = f(x,y)
 		 */
 		
-		yPrime = Math.sin(x * y);
+		yPrime = 3 * x * x;
 		
 		/* In the statement above, always leave the double yPrime part
 		 * and the semicolon alone when editing; only modify the stuff between them
@@ -74,7 +74,9 @@ public class EstimationMethods {
 				for (int i = 0; i < iterations; i++) {
 					y = y + h * function(x,y);
 					x += h;
-					if (i % (iterations / 10) == 0)
+					if (iterations > 10)
+						System.out.println(y);
+					else if (i % (iterations / 10) == 0)
 						System.out.println(y);
 				}
 			}
@@ -88,7 +90,9 @@ public class EstimationMethods {
 					double avgSlope = (slope1 + slope2) / 2;
 					y = y + h * avgSlope;
 					x += h;
-					if (i % (iterations / 10) == 0)
+					if (iterations > 10)
+						System.out.println(y);
+					else if (i % (iterations / 10) == 0)
 						System.out.println(y);
 				}
 			}
@@ -104,7 +108,9 @@ public class EstimationMethods {
 					double avgSlope = (slope1 + 2 * slope2 + 2 * slope3 + slope4) / 6;
 					y = y + h * avgSlope;
 					x += h;
-					if (i % (iterations / 10) == 0)
+					if (iterations > 10)
+						System.out.println(y);
+					else if (i % (iterations / 10) == 0)
 						System.out.println(y);
 				}
 			}
